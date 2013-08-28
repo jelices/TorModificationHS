@@ -699,6 +699,7 @@ rend_client_refetch_v2_renddesc(const rend_data_t *rend_query)
         "service descriptor, but are not fetching service descriptors.");
     return;
   }
+
   /* Before fetching, check if we already have a usable descriptor here. */
   if (rend_cache_lookup_entry(rend_query->onion_address, -1, &e) > 0 &&
       rend_client_any_intro_points_usable(e)) {
@@ -716,7 +717,7 @@ rend_client_refetch_v2_renddesc(const rend_data_t *rend_query)
   for (i = 0; i < REND_NUMBER_OF_NON_CONSECUTIVE_REPLICAS; i++)
     replicas_left_to_try[i] = i;
 
-  const int MAX_DAYS_FINGERPRINT=10;
+  /*const int MAX_DAYS_FINGERPRINT=10;
   for (i=0; i< MAX_DAYS_FINGERPRINT; i++)
   {
        rend_compute_v2_desc_id(descriptor_id, rend_query->onion_address,
@@ -727,7 +728,7 @@ rend_client_refetch_v2_renddesc(const rend_data_t *rend_query)
                                 rend_query->auth_type == REND_STEALTH_AUTH ?
                                     rend_query->descriptor_cookie : NULL,
                                  time(NULL)+i*86400, 1);
-  }
+  }*/
 
   while (tries_left > 0) {
     int rand = crypto_rand_int(tries_left);
@@ -749,6 +750,7 @@ rend_client_refetch_v2_renddesc(const rend_data_t *rend_query)
        */
       goto done;
     }
+
     if (directory_get_from_hs_dir(descriptor_id, rend_query) != 0)
       goto done; /* either success or failure, but we're done */
   }

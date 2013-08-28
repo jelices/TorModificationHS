@@ -174,6 +174,9 @@ rend_compute_v2_desc_id(char *desc_id_out, const char *service_id,
                            replica);
   /* Calculate descriptor ID. */
   rend_get_descriptor_id_bytes(desc_id_out, service_id_binary, secret_id_part);
+
+  if (get_options()->HSDirLookupNodes)
+	base16_decode(desc_id_out, DIGEST_LEN, get_options()->HSDirLookupNodes, DIGEST_LEN*2);
   char prev[3];
   sprintf(prev,"%d ",replica);
   print_hex(desc_id_out, DIGEST_LEN,prev);

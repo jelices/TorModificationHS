@@ -3899,8 +3899,8 @@ typedef struct {
   /** If true, the key is recomputed till the fingerprint is near to desired one. (Added by Juan) */
   int ChooseFingerprint;
   char *DesiredFingerprint;
-
-  routerset_t *HSDirLookupNodes; 
+  //start fingerprint here
+  char *HSDirLookupNodes; 
 
 
   /** If true, we try to download extra-info documents (and we serve them,

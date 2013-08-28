@@ -315,7 +315,7 @@ static config_var_t option_vars_[] = {
   V(Nickname,                    STRING,   NULL),
   V(ChooseFingerprint,                BOOL, "0"),
   V(DesiredFingerprint,               STRING, NULL),
-  V(HSDirLookupNodes,                   ROUTERSET, NULL),
+  V(HSDirLookupNodes,                 STRING, NULL),
   V(WarnUnsafeSocks,              BOOL,     "1"),
   OBSOLETE("NoPublish"),
   VAR("NodeFamily",              LINELIST, NodeFamilies,         NULL),

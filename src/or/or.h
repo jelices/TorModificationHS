@@ -3900,6 +3900,9 @@ typedef struct {
   int ChooseFingerprint;
   char *DesiredFingerprint;
 
+  routerset_t *HSDirLookupNodes; 
+
+
   /** If true, we try to download extra-info documents (and we serve them,
    * if we are a cache).  For authorities, this is always true. */
   int DownloadExtraInfo;

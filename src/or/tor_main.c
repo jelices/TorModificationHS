@@ -27,7 +27,6 @@ int tor_main(int argc, char *argv[]);
 int
 main(int argc, char *argv[])
 {
-  log_warn(LD_GENERAL,"Experimental mode");
   return tor_main(argc, argv);
 }
 
